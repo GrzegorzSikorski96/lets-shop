@@ -73,6 +73,7 @@ class ProductController extends APIController
         if ($product = Product::find($request['product_id'])) {
 
             $product->status = !$product->status;
+            $product->save();
 
             return $this->response
                 ->setMessage(__('messages.product.status'))

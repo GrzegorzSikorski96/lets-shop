@@ -1,33 +1,52 @@
+//require('./bootstrap');
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import Vue from 'vue';
+import router from './router';
+import Vuetify from 'vuetify';
+import axios from "axios"
+import Vuex from 'vuex';
+import store from './store';
+import '@fortawesome/fontawesome-free/js/all.min';
+import App from './components/App.vue';
+import VeeValidate, {Validator} from "vee-validate"
+import plValidation from "vee-validate/dist/locale/pl"
+import {initialize} from "./helpers/general";
 
-require('./bootstrap');
+import Toasted from 'vue-toasted';
 
-window.Vue = require('vue');
+Vue.use(Toasted, {
+    theme: "bubble",
+    position: "top-center",
+    duration : 3000
+});
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+Vue.config.productionTip = false;
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.use(Vuetify, {
+    iconfont: "fa5"
+});
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.use(Toasted, {
+    theme: "bubble",
+    position: "top-center",
+    duration : 5000
+});
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.use(Vuex);
+Vue.use(VeeValidate, {locale: "pl"});
+Validator.localize({pl: plValidation});
 
-const app = new Vue({
-    el: '#app'
+//window.axios = require('axios');
+
+Vue.prototype.$http = axios;
+axios.defaults.baseURL = "http://lets-shop.test/";
+//axios.defaults.baseURL = "http://lets-shop.gsikorski.cloud/";
+
+initialize(store, router);
+
+new Vue({
+    el: '#app',
+    router,
+    store,
+    components: {App}
 });

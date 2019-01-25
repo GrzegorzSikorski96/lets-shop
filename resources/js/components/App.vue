@@ -47,17 +47,11 @@
                 this.$store.commit('logout');
                 this.$router.push('/login');
             },
-            isAdmin() {
-                return currentUser.role.name === 'ADMIN' || currentUser.role.name === 'SUPERADMIN';
-            }
         },
         computed: {
             currentUser() {
                 return this.$store.getters.currentUser;
             },
-            calendars() {
-                return this.$store.getters.calendars;
-            }
         },
     }
 </script>

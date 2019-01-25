@@ -14,8 +14,6 @@ import {initialize} from "./helpers/general";
 
 import Toasted from 'vue-toasted';
 
-Vue.prototype.moment = moment;
-
 Vue.use(Toasted, {
     theme: "bubble",
     position: "top-center",
@@ -26,6 +24,12 @@ Vue.config.productionTip = false;
 
 Vue.use(Vuetify, {
     iconfont: "fa5"
+});
+
+Vue.use(Toasted, {
+    theme: "bubble",
+    position: "top-center",
+    duration : 5000
 });
 
 Vue.use(Vuex);

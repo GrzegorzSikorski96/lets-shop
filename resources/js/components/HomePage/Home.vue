@@ -2,8 +2,8 @@
     <v-container fill-height class="container">
         <v-layout align-center>
             <v-flex xs12 sm6 offset-sm3>
-                <v-card color="#e8e7c9" elevation="10">
-                    <v-card-text class="brown--text">
+                <v-card  elevation="10">
+                    <v-card-text class="">
                         <h1>
                             asdasd
                         </h1>
@@ -24,8 +24,6 @@
         name: "Home",
         data: () => ({
         }),
-        methods: {
-        }
     }
 </script>
 

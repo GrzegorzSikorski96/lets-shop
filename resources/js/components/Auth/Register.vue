@@ -3,7 +3,7 @@
         <v-container fill-height>
             <v-layout align-center>
                 <v-flex xs12 sm6 offset-sm3>
-                    <v-card color="#e8e7c9" class="brown--text">
+                    <v-card class="brown--text">
                         <v-card-title primary-title>
                             <div>
                                 <h3 class="headline mb-0">Zarejestruj</h3>

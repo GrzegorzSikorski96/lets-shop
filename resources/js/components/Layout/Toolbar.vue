@@ -1,9 +1,9 @@
 <template>
-    <v-toolbar color="#ab8464" dense dark fixed app class="navbar">
+    <v-toolbar color="#005169" dense dark fixed app class="navbar">
         <slot></slot>
         <router-link class="title" :to="{name: 'HomePage'}">
             <v-toolbar-title class="title white--text" fill-width>
-                Kalendarze
+                Lets-shop
             </v-toolbar-title>
         </router-link>
     </v-toolbar>
@@ -11,11 +11,6 @@
 
 <script>
     export default {
-        methods: {
-            isAdmin() {
-                return currentUser.role.name === 'ADMIN' || currentUser.role.name === 'SUPERADMIN';
-            }
-        },
         computed: {
             currentUser() {
                 return this.$store.getters.currentUser;

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-
 use App\Models\Group;
 use App\Models\GroupUser;
 use App\Models\User;
@@ -13,14 +12,14 @@ class GroupController extends APIController
 {
     public function getGroup($id)
     {
-        if ($group = Group::find($id)) {
+        if ($group = $this->group_service->findGame($id)) {
             return $this->response
                 ->setData(['group' => $group])
                 ->setSuccessStatus()
                 ->getResponse();
         }
 
-        return $this->getGroupNotFoundResponse();
+        return $this->group_service->getGroupNotFoundResponse();
     }
 
     public function getGroups()
@@ -33,9 +32,9 @@ class GroupController extends APIController
             ->getResponse();
     }
 
-    public function remove($id)
+    public function removeGroup($id)
     {
-        if ($group = Group::find($id)) {
+        if ($group = $this->group_service->findGame($id)) {
             $group->deleteGroup();
             return $this->response
                 ->setMessage(__('messages.group.removed'))
@@ -43,7 +42,7 @@ class GroupController extends APIController
                 ->getResponse();
         }
 
-        return $this->getGroupNotFoundResponse();
+        return $this->group_service->getGroupNotFoundResponse();
     }
 
     public function createGroup(Request $request)
@@ -65,6 +64,11 @@ class GroupController extends APIController
             'owner_id' => $this->auth->id
         ]);
 
+        GroupUser::create([
+            'group_id' => $group->id,
+            'user_id' => $this->auth->id
+        ]);
+
         return $this->response
             ->setMessage(__('messages.group.created'))
             ->setData(['group' => $group])
@@ -74,7 +78,7 @@ class GroupController extends APIController
 
     public function invite($id, Request $request)
     {
-        if ($group = Group::find($id)) {
+        if ($group = $this->group_service->findGame($id)) {
             if (!$group->isOwner()) {
                 return $this->response
                     ->setMessage(__('messages.access.denied'))
@@ -101,12 +105,12 @@ class GroupController extends APIController
                 ->getResponse();
         }
 
-        return $this->getGroupNotFoundResponse();
+        return $this->group_service->getGroupNotFoundResponse();
     }
 
     public function kick($id, Request $request)
     {
-        if ($group = Group::find($id)) {
+        if ($group = $this->group_service->findGame($id)) {
             if (!$group->isOwner()) {
                 return $this->response
                     ->setMessage(__('messages.access.denied'))
@@ -130,16 +134,7 @@ class GroupController extends APIController
                 ->getResponse();
         }
 
-        return $this->getGroupNotFoundResponse();
+        return $this->group_service->getGroupNotFoundResponse();
     }
 
-    public function getGroupNotFoundResponse()
-    {
-        return $this->response
-            ->setMessage(__('messages.group.not.found'))
-            ->setFailureStatus(400)
-            ->getResponse();
-    }
 }
-
-

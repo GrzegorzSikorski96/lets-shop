@@ -26,10 +26,10 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::post("/invite/{id}", "API\GroupController@invite")->where('id', '[0-9]+');
     Route::post("/kick/{id}", "API\GroupController@invite")->where('id', '[0-9]+');
 
-    Route::get("/list/{id}")->where('id', '[0-9]+');
+    Route::post("/lists{id}", "API\ListController@getGroupLists");
+    Route::get("/list/{id}", "API\ListController@getList")->where('id', '[0-9]+');
 
-    Route::get("/groups", "API\UserController@getUserGroups");
-
+    Route::post('product/{id}/shop', 'API\ProductController@addShop');
 });
 
 

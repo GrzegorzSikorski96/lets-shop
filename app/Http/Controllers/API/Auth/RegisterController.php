@@ -28,7 +28,7 @@ class RegisterController extends APIController
                 ->getResponse();
         }
 
-        if(User::where('email', $request['email'])){
+        if(User::where('email', $request['email'])->first()){
             return $this->response
                 ->setMessage(__('messages.email.taken'))
                 ->setData($validator->errors())

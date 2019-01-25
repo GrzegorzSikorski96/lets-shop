@@ -4,6 +4,7 @@ import Login from "./components/Auth/Login";
 import HomePage from "./components/HomePage/HomePage";
 import Register from "./components/Auth/Register";
 import Group from "./components/Group/Group";
+import List from "./components/List/List";
 
 Vue.use(Router);
 
@@ -36,6 +37,12 @@ export default new Router({
             path: '/group/:id',
             name: 'Group',
             component: Group,
+            props: true
+        },
+        {
+            path: '/list/:id',
+            name: 'List',
+            component: List,
             props: true
         }
     ]

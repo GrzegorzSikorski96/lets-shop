@@ -39,8 +39,8 @@ Validator.localize({pl: plValidation});
 //window.axios = require('axios');
 
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = "http://lets-shop.test/";
-//axios.defaults.baseURL = "http://lets-shop.gsikorski.cloud/";
+//axios.defaults.baseURL = "http://lets-shop.test/";
+axios.defaults.baseURL = "http://lets-shop.gsikorski.cloud/";
 
 initialize(store, router);
 

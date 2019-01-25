@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::fallback(function (\App\Helpers\APIResponse $response) {
+    return $response
+        ->setMessage(__('messages.not.found'))
+        ->setFailureStatus(404)
+        ->getLogoutResponse();
 });

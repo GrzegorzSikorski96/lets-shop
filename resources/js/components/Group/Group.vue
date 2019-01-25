@@ -49,6 +49,15 @@
                     fab
                     dark
                     small
+                    color="info"
+                    @click="groupUsers()"
+            >
+                <v-icon>person</v-icon>
+            </v-btn>
+            <v-btn
+                    fab
+                    dark
+                    small
                     color="error"
                     @click="removeGroup(group)"
             >
@@ -68,6 +77,7 @@
         <remove-group v-if="removeGroupDialog" :group="group"></remove-group>
         <add-user v-if="addUserDialog" :group="group"></add-user>
         <add-list v-if="addListDialog" :group="group"></add-list>
+        <group-users v-if="groupUsersDialog"></group-users>
     </v-flex>
 </template>
 
@@ -75,6 +85,7 @@
     import RemoveGroup from "./RemoveGroup";
     import AddUser from "./AddUser";
     import AddList from "../List/AddList";
+    import GroupUsers from "./GroupUsers";
 
     export default {
         name: "Group",
@@ -96,9 +107,17 @@
                 this.group = Object.assign({}, group);
                 this.addListDialog = true;
             },
+            groupUsers() {
+                this.groupUsersDialog = true;
+            },
             fetchGroup() {
                 this.$http.get(`api/group/${this.$route.params.id}`).then((response) => {
                     this.group = response.data.data.group
+                });
+            },
+            fetchUsers() {
+                this.$http.get(`api/group/${this.$route.params.id}/users`).then((response) => {
+                    this.users = response.data.data.users
                 });
             },
             async fetchGroups() {
@@ -112,20 +131,24 @@
         },
         data: () => ({
             group: [],
+            users: [],
             lists: [],
             removeGroupDialog: false,
             addUserDialog: false,
             addListDialog: false,
+            groupUsersDialog: false,
         }),
         components: {
             RemoveGroup,
             AddUser,
             AddList,
+            GroupUsers
         },
         mounted() {
             if (this.currentUser) {
                 this.fetchGroup();
                 this.fetchLists();
+                this.fetchUsers();
             }
 
         },

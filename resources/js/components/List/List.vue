@@ -13,7 +13,7 @@
                             group
                             tag="v-list"
                     >
-                        <template v-for="(product, i) in computedProducts">
+                        <template v-for="(product, i) in products">
                             <v-divider
                                     v-if="i !== 0"
                                     :key="`${i}-divider`"
@@ -24,6 +24,7 @@
                                     <v-checkbox
                                             v-model="product.status"
                                             color="info darken-3"
+                                            @change="changeStatus(product.id)"
                                     >
                                         <div
                                                 slot="label"
@@ -35,7 +36,6 @@
                                 </v-list-tile-action>
 
                                 <v-spacer></v-spacer>
-
                                 <v-scroll-x-transition>
                                     <v-icon
                                             v-if="product.status"
@@ -44,6 +44,9 @@
                                         check
                                     </v-icon>
                                 </v-scroll-x-transition>
+                                <v-btn flat icon :href="`https://www.google.com/search?q=${product.name}&source=lnms&tbm=isch`">
+                                    <v-icon >photo</v-icon>
+                                </v-btn>
                             </v-list-tile>
                         </template>
                     </v-slide-y-transition>
@@ -123,6 +126,18 @@
                     this.categories = response.data.data.categories;
                 });
             },
+            async changeStatus(id) {
+                let data = {
+                    product_id: id,
+                };
+
+                this.$http.post("/api/product/check", data)
+                    .then(response => {
+                        Vue.toasted.show(response.data.message, {
+                            type: 'success'
+                        });
+                    });
+            },
             generateLabel(product) {
                 let label = '';
 
@@ -176,13 +191,6 @@
                 this.fetchList();
             },
         },
-        computed:{
-            computedProducts() {
-                return this.products.sort(function(a, b) {
-                    return a.status > b.status;
-                })
-            }
-        }
     }
 </script>
 

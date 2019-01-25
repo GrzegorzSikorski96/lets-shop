@@ -76,7 +76,6 @@
             add() {
                 this.$validator.validate().then(result => {
                     if (result) {
-                        alert(this.category);
                         let data = {
                             name: this.name,
                             description: this.description,

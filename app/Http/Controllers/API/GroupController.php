@@ -4,6 +4,10 @@ namespace App\Http\Controllers\API;
 
 
 use App\Models\Group;
+use App\Models\GroupUser;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class GroupController extends APIController
 {
@@ -16,10 +20,7 @@ class GroupController extends APIController
                 ->getResponse();
         }
 
-        return $this->response
-            ->setMessage(__('messages.group.not.found'))
-            ->setSuccessStatus()
-            ->getResponse();
+        return $this->getGroupNotFoundResponse();
     }
 
     public function getGroups()
@@ -35,18 +36,110 @@ class GroupController extends APIController
     public function remove($id)
     {
         if ($group = Group::find($id)) {
-            $group->delete();
+            $group->deleteGroup();
             return $this->response
-                ->setData(['group' => $group])
+                ->setMessage(__('messages.group.removed'))
                 ->setSuccessStatus()
                 ->getResponse();
         }
 
+        return $this->getGroupNotFoundResponse();
+    }
+
+    public function createGroup(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'min:3|required',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->response
+                ->setMessage(__('messages.validation.fail'))
+                ->setData($validator->errors())
+                ->setFailureStatus(400)
+                ->getResponse();
+        }
+
+        $group = Group::create([
+            'name' => $request['name'],
+            'owner_id' => $this->auth->id
+        ]);
+
         return $this->response
-            ->setMessage(__('messages.group.not.found'))
+            ->setMessage(__('messages.group.created'))
+            ->setData(['group' => $group])
             ->setSuccessStatus()
             ->getResponse();
     }
 
+    public function invite($id, Request $request)
+    {
+        if ($group = Group::find($id)) {
+            if (!$group->isOwner()) {
+                return $this->response
+                    ->setMessage(__('messages.access.denied'))
+                    ->setData(['group' => $group])
+                    ->setFailureStatus(401)
+                    ->getResponse();
+            }
 
+            if (($user = User::where('email', $request['email'])) && !$group->findUser($user->id)) {
+                GroupUser::create([
+                    'group_id' => $group->id,
+                    'user_id' => $user->id
+                ]);
+
+                return $this->response
+                    ->setMessage(__('messages.invite.success'))
+                    ->setData(['group' => $group])
+                    ->setSuccessStatus()
+                    ->getResponse();
+            }
+            return $this->response
+                ->setMessage(__('messages.invite.fail'))
+                ->setFailureStatus(400)
+                ->getResponse();
+        }
+
+        return $this->getGroupNotFoundResponse();
+    }
+
+    public function kick($id, Request $request)
+    {
+        if ($group = Group::find($id)) {
+            if (!$group->isOwner()) {
+                return $this->response
+                    ->setMessage(__('messages.access.denied'))
+                    ->setData(['group' => $group])
+                    ->setFailureStatus(401)
+                    ->getResponse();
+            }
+
+            if (!$group->findUser($request['user_id'])) {
+                $group->users->where('user_id', $request['user_id'])->first()->delete();
+
+                return $this->response
+                    ->setMessage(__('messages.kick.success'))
+                    ->setData(['group' => $group])
+                    ->setSuccessStatus()
+                    ->getResponse();
+            }
+            return $this->response
+                ->setMessage(__('messages.kick.fail'))
+                ->setFailureStatus(400)
+                ->getResponse();
+        }
+
+        return $this->getGroupNotFoundResponse();
+    }
+
+    public function getGroupNotFoundResponse()
+    {
+        return $this->response
+            ->setMessage(__('messages.group.not.found'))
+            ->setFailureStatus(400)
+            ->getResponse();
+    }
 }
+
+

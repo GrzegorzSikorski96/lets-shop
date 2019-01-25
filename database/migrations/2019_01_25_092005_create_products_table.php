@@ -27,6 +27,8 @@ class CreateProductsTable extends Migration
             $table->integer('shop_id')->unsigned()->nullable();
             $table->foreign('shop_id')->references('id')->on('shops');
 
+            $table->string("description")->nullable();
+
 
         });
     }

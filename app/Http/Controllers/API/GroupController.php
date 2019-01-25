@@ -89,7 +89,7 @@ class GroupController extends APIController
                     ->getResponse();
             }
 
-            if (($user = User::where('email', $request['email']))) {
+            if (($user = User::where('email', $request['email'])->first())) {
                 if (!$group->findUser($user->id)) {
                     GroupUser::create([
                         'group_id' => $group->id,

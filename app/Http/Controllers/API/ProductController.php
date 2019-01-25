@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\ShopListUpdated;
 use App\Http\Requests\AddProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -38,6 +39,8 @@ class ProductController extends APIController
 
         $product = Product::create($data);
 
+        event(new ShopListUpdated($product->list));
+
         return $this->response
             ->setMessage(__('messages.product.added'))
             ->setData(['list' => $product->shopList])
@@ -51,6 +54,9 @@ class ProductController extends APIController
         if ($product = Product::find($product_id)) {
 
             $product->delete();
+
+            event(new ShopListUpdated($product->list));
+
             return $this->response
                 ->setMessage(__('messages.product.removed'))
                 ->setData(['list' => $product->shopList])
@@ -69,11 +75,14 @@ class ProductController extends APIController
      *
      */
 
-    public function changeStatus(Request $request){
+    public function changeStatus(Request $request)
+    {
         if ($product = Product::find($request['product_id'])) {
 
             $product->status = !$product->status;
             $product->save();
+
+            event(new ShopListUpdated($product->list));
 
             return $this->response
                 ->setMessage(__('messages.product.status'))

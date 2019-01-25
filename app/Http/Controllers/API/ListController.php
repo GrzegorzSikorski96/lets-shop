@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\ShopListUpdated;
 use App\Models\Category;
 use App\Models\CategoryProduct;
 use App\Models\ShopList;
@@ -44,6 +45,8 @@ class ListController extends APIController
 
             $list->completed = !$list->completed;
             $list->save();
+
+            event(new ShopListUpdated($list));
 
             return $this->response
                 ->setMessage(__('messages.list.status'))

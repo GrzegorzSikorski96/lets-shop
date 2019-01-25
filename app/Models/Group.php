@@ -13,6 +13,8 @@ class Group extends Model
         'name', 'owner_id',
     ];
 
+
+
     public function owner(): BelongsTo{
         return $this->belongsTo(User::class);
     }
@@ -27,6 +29,10 @@ class Group extends Model
     }
 
     public function users(): HasMany{
-        return $this->hasMany(User::class);
+        return $this->hasMany(GroupUser::class);
+    }
+
+    public function deleteGroup(){
+
     }
 }

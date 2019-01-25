@@ -15,14 +15,22 @@ class RegisterController extends APIController
 
         $validator = Validator::make($request->all(), [
             'name' => 'min:3|required',
-            'email' => 'email|required|unique:users',
+            'email' => 'email|required',
             'password' => 'min:4|required',
             'password_confirmation' => 'same:password|required',
         ]);
 
         if ($validator->fails()) {
             return $this->response
-                ->setMessage(__('messages.validation'))
+                ->setMessage(__('messages.validation.fail'))
+                ->setData($validator->errors())
+                ->setFailureStatus(400)
+                ->getResponse();
+        }
+
+        if(User::where('email', $request['email'])){
+            return $this->response
+                ->setMessage(__('messages.email.taken'))
                 ->setData($validator->errors())
                 ->setFailureStatus(400)
                 ->getResponse();
@@ -33,7 +41,7 @@ class RegisterController extends APIController
         $user = User::create($input);
 
         return $this->response
-            ->setMessage("Zarejestrowano pomyślnie.")
+            ->setMessage(__('messages.register.success'))
             ->setSuccessStatus()
             ->getResponse();
     }

@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3f6f110-a139-47f0-bc9c-4afbb168b452" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/en/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/en/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/en/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/en/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/en/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/pl/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/pl/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/pl/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/pl/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/passwords.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lang/pl/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/validation.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,27 +29,40 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#49#92#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="744">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/resources/lang/pl/messages.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Group.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="e#30#69#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/Auth/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="421">
+              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
               <folding>
                 <element signature="e#49#92#0#PHP" expanded="true" />
               </folding>
@@ -56,19 +71,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="527">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="e#49#92#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupController.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="255">
+              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#30#69#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/GroupUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+              <folding>
+                <element signature="e#30#69#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,7 +131,6 @@
         <option value="$PROJECT_DIR$/app/Exceptions/Handler.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/APIController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/lang/lang/pl/messages.php" />
         <option value="$PROJECT_DIR$/resources/lang/lang/en/messages.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/resources/js/components/Layout/NavigationDrawerItems.vue" />
@@ -104,14 +144,17 @@
         <option value="$PROJECT_DIR$/resources/js/components/Auth/Login.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/Layout/Toolbar.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/Auth/Register.vue" />
-        <option value="$PROJECT_DIR$/app/Models/Group.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/config/auth.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_01_25_105848_create_group_users_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/GroupUser.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Group.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/Auth/RegisterController.php" />
+        <option value="$PROJECT_DIR$/resources/lang/lang/pl/messages.php" />
       </list>
     </option>
   </component>
@@ -284,11 +327,6 @@
             <path>
               <item name="lets-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="lets-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lets-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lets-shop" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -311,21 +349,6 @@
             <path>
               <item name="lets-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="lets-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lets-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lets-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="pl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lets-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lets-shop" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -344,6 +367,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\lets-shop\resources\lang" />
       <recent name="C:\laragon\www\lets-shop\app\Models" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -380,11 +404,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6482000" />
+    <option name="totallyTimeSpent" value="8517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1000" y="-146" width="991" height="1044" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3576799" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -436,21 +459,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/lang/pl/messages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/lang/en/messages.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/messages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/lang/en/auth.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/auth.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
@@ -606,27 +622,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#30#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/auth.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="43" column="18" lean-forward="true" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/lang/pl/validation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="95" column="63" lean-forward="true" selection-start-line="95" selection-start-column="63" selection-end-line="95" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -643,27 +642,65 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_25_091605_create_categories_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_25_091646_create_shop_lists_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="255">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_25_105848_create_group_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#49#92#0#PHP" expanded="true" />
+            <element signature="e#30#69#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/validation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="493">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/pl/validation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1599">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="744">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Group.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -674,10 +711,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/pl/messages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#49#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/GroupUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="421">
+          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
           <folding>
             <element signature="e#49#92#0#PHP" expanded="true" />
           </folding>

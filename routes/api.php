@@ -30,7 +30,12 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::get("/list/{list_id}", "API\ListController@getList")->where('list_id', '[0-9]+');
     Route::post('/list/{group_id}', "API\ListController@createList")->where('group_id', '[0-9]+');
 
-    Route::post('product/{group_id}/shop', 'API\ProductController@addShop')->where('group_id', '[0-9]+');
+    Route::post('product/{group_id}/shop', "API\ProductController@addShop")->where('group_id', '[0-9]+');
+    Route::post('product/{list_id}', "API\ProductController@createOrUpdate")->where('list_id', '[0-9]+');
+
+
+
+
 });
 
 

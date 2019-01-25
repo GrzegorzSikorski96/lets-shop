@@ -30,5 +30,7 @@ return [
     'list.status'         => "Zmieniono status.",
 
     'product.not.found'   => "Pozycja nie istnieje.",
-
+    'product.added'       => "Dodano pozycję.",
+    'product.removed'     => "Usunięto pozycję.",
+    'product.updated'     => "Zaktualizowano pozycję."
 ];

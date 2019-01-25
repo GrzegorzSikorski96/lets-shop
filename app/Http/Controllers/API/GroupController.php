@@ -14,7 +14,9 @@ class GroupController extends APIController
     {
         if ($group = $this->group_service->findGroup($group_id)) {
             return $this->response
-                ->setData(['group' => $group])
+                ->setData([
+                    'group' => $group,
+                    'shop_lists' => $group->shopLists])
                 ->setSuccessStatus()
                 ->getResponse();
         }

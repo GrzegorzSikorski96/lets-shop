@@ -13,7 +13,9 @@ class Group extends Model
         'name', 'owner_id',
     ];
 
-
+    protected $hidden = [
+        'shop_lists'
+    ];
 
     public function owner(): BelongsTo{
         return $this->belongsTo(User::class);

@@ -1,16 +1,16 @@
 <template>
-    <v-dialog v-model="$parent.addGroupDialog" max-width="500px">
+    <v-dialog v-model="$parent.addUserDialog" max-width="500px">
         <v-card>
             <v-card-text>
-                <h1 class="brown--text">Dodaj grupę</h1>
+                <h1 class="brown--text">Dodaj użytkownika</h1>
                 <v-container grid-list-md>
                     <v-form @keyup.native.enter="add()" class="form">
                         <v-text-field
-                                v-validate.in="'required'"
-                                v-model="name"
-                                :error-messages="errors.collect('nazwa')"
-                                label="Nazwa"
-                                data-vv-name="nazwa"
+                                v-validate.in="'required|email'"
+                                v-model="email"
+                                :error-messages="errors.collect('email')"
+                                label="Email"
+                                data-vv-name="email"
                                 required>
                         </v-text-field>
                     </v-form>
@@ -20,7 +20,7 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="success darken-1" flat @click="add()">Dodaj</v-btn>
-                <v-btn color="red darken-1" flat @click="$parent.addGroupDialog = false">Anuluj</v-btn>
+                <v-btn color="red darken-1" flat @click="$parent.addUserDialog = false">Anuluj</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -30,38 +30,40 @@
     import Vue from 'vue'
 
     export default {
-        name: "AddGroup",
+        name: "AddUser",
         data() {
             return {
-                name: null,
+                email: null,
             }
+        },
+        props: {
+            group: {type: Object},
         },
         methods: {
             add() {
                 this.$validator.validate().then(result => {
                     if (result) {
                         let data = {
-                            name: this.name,
+                            email: this.email,
                         };
 
-                        this.$http.post("/api/group", data)
+                        this.$http.post(`/api/invite/${this.group.id}`, data)
                             .then(response => {
                                 Vue.toasted.show(response.data.message, {
                                     type: 'success'
                                 });
-                                this.$parent.fetchGroups();
                             })
                             .catch(error => {
                                 Vue.toasted.show(error.data.message, {
                                     type: 'error'
                                 });
-                            });
+                            })
                     }
                 });
-                this.$parent.addGroupDialog = false;
+                this.$parent.addEventDialog = false;
             },
             clearForm(){
-                this.name = null;
+                this.email = null;
             }
         },
     }

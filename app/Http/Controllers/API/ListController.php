@@ -23,7 +23,10 @@ class ListController extends APIController
     {
         if ($list = ShopList::find($id)) {
             return $this->response
-                ->setData(['list' => $list])
+                ->setData([
+                    'list' => $list,
+                    'products' => $list->products
+                    ])
                 ->setSuccessStatus()
                 ->getResponse();
         }

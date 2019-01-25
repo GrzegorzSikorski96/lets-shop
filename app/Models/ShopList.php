@@ -11,6 +11,10 @@ class ShopList extends Model
         'group_id', 'name', 'status'
     ];
 
+    protected $hidden = [
+        'products'
+    ];
+
     public function products(): HasMany{
         return $this->hasMany(Product::class);
     }

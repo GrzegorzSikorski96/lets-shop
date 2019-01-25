@@ -145,6 +145,9 @@
                 this.$store.commit('logout');
                 this.$router.push('/login');
             },
+            async fetchGroups() {
+                this.$store.dispatch('getGroups');
+            },
         },
         components:{
           AddGroup
@@ -153,7 +156,6 @@
             drawer: true,
 
             addGroupDialog: false,
-            groups: [],
 
             authRoutes: [],
             visitorRoutes: [
@@ -164,7 +166,20 @@
             currentUser() {
                 return this.$store.getters.currentUser;
             },
+            groups() {
+                return this.$store.getters.getGroups;
+            },
         },
+        mounted() {
+            if (this.currentUser) {
+                this.$store.dispatch('getGroups');
+            }
+        },
+        watch: {
+            currentUser() {
+                this.fetchGroups();
+            },
+        }
     }
 </script>
 

@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 import {getLocalUser} from './helpers/auth';
 import {setAuthorization} from "./helpers/general";
+import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
         isLoggedIn: !!user,
         loading: false,
         auth_error: null,
+        groups: [],
     },
     getters: {
         isLoading(state) {
@@ -26,6 +28,9 @@ export default new Vuex.Store({
         },
         authError(state) {
             return state.auth_error;
+        },
+        getGroups(state) {
+            return state.groups;
         },
         getToken(state) {
             if(state.currentUser) {
@@ -88,6 +93,9 @@ export default new Vuex.Store({
                 type: 'success'
             });
         },
+        updateGroups(state, payload) {
+            state.groups = payload.data.groups;
+        },
         refreshToken(state, payload) {
             if(state.currentUser) {
                 state.currentUser.token = payload;
@@ -102,6 +110,12 @@ export default new Vuex.Store({
         },
         register(context) {
             context.commit("register");
+        },
+        getGroups(context) {
+            axios.get('/api/groups'
+            ).then((response) => {
+                context.commit('updateGroups', response.data);
+            });
         },
     }
 })

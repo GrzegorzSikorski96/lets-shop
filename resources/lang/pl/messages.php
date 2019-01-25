@@ -28,6 +28,7 @@ return [
 
     'list.not.found'      => "Lista nie istnieje.",
     'list.status'         => "Zmieniono status.",
+    'list.removed'        => "Usunięto listę.",
 
     'product.not.found'   => "Pozycja nie istnieje.",
     'product.added'       => "Dodano pozycję.",

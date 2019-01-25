@@ -67,6 +67,24 @@ class ListController extends APIController
         return $this->group_service->getGroupNotFoundResponse();
     }
 
+    public function removeList($list_id){
+        if ($list = ShopList::find($list_id)) {
+
+
+            foreach($list->products as $product){
+                $product->delete();
+            }
+            $list->delete();
+
+            return $this->response
+                ->setMessage(__('messages.list.removed'))
+                ->setData(['list' => $list])
+                ->setSuccessStatus()
+                ->getResponse();
+        }
+        return $this->getListNotFoundResponse();
+    }
+
     private function getListNotFoundResponse()
     {
         return $this->response

@@ -24,8 +24,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function shop(): HasOne{
-        return $this->hasOne(Shop::class);
+    public function shop(): BelongsTo{
+        return $this->belongsTo(Shop::class);
     }
 
     public function getUnitTypeAttribute(){

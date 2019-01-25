@@ -7,7 +7,7 @@ use App\Models\Group;
 
 class GroupService
 {
-    public function findGame($id){
+    public function findGroup($id){
         if ($group = Group::find($id)) {
             return $group;
         }

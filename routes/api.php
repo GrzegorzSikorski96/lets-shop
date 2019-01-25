@@ -19,17 +19,18 @@ Route::post("/register", "API\Auth\RegisterController@register")->name("register
 Route::group(['middleware' => ['jwt.auth']], function () {
     Route::post("/logout", "API\Auth\AuthController@logout")->name("logout");
 
-    Route::get("/group/{id}", "API\GroupController@getGroup")->where('id', '[0-9]+');
+    Route::get("/group/{group_id}", "API\GroupController@getGroup")->where('group_id', '[0-9]+');
     Route::get("/groups", "API\GroupController@getGroups");
     Route::post("/group", 'API\GroupController@createGroup');
-    Route::post("/group/{id}/remove", "API\GroupController@removeGroup")->where('id', '[0-9]+');
-    Route::post("/invite/{id}", "API\GroupController@invite")->where('id', '[0-9]+');
-    Route::post("/kick/{id}", "API\GroupController@invite")->where('id', '[0-9]+');
+    Route::post("/group/{group_id}/remove", "API\GroupController@removeGroup")->where('group_id', '[0-9]+');
+    Route::post("/invite/{group_id}", "API\GroupController@invite")->where('group_id', '[0-9]+');
+    Route::post("/kick/{group_id}", "API\GroupController@invite")->where('group_id', '[0-9]+');
 
-    Route::post("/lists{id}", "API\ListController@getGroupLists");
-    Route::get("/list/{id}", "API\ListController@getList")->where('id', '[0-9]+');
+    Route::get("/lists/{group_id}", "API\ListController@getGroupLists")->where('group_id', '[0-9]+');
+    Route::get("/list/{list_id}", "API\ListController@getList")->where('list_id', '[0-9]+');
+    Route::post('/list/{group_id}', "API\ListController@createList")->where('group_id', '[0-9]+');
 
-    Route::post('product/{id}/shop', 'API\ProductController@addShop');
+    Route::post('product/{group_id}/shop', 'API\ProductController@addShop')->where('group_id', '[0-9]+');
 });
 
 

@@ -10,5 +10,4 @@ class Shop extends Model
         'name', 'group_id'
     ];
 
-
 }

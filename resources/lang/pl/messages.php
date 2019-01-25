@@ -29,4 +29,6 @@ return [
     'list.not.found'      => "Lista nie istnieje.",
     'list.status'         => "Zmieniono status.",
 
+    'product.not.found'   => "Pozycja nie istnieje.",
+
 ];

@@ -13,7 +13,7 @@ class Product extends Model
     ];
 
     protected $appends = [
-        'unit_type'
+        'unit_type', 'category_name', 'shop_name'
     ];
 
     public function shopList(): BelongsTo{
@@ -33,4 +33,13 @@ class Product extends Model
         return $category->unit_type;
     }
 
+    public function getCategoryNameAttribute(){
+        if(($category = $this->category) == null) return null;
+        return $category->name;
+    }
+
+    public function getShopNameAttribute(){
+        if(($shop = $this->shop) == null) return null;
+        return $shop->name;
+    }
 }

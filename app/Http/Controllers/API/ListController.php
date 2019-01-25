@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\Category;
 use App\Models\ShopList;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class ListController extends APIController
             return $this->response
                 ->setData([
                     'list' => $list,
-                    'products' => $list->products
+                    'products' => $list->products,
+                    'shops' => $list->group->shops,
+                    'categories' => Category::all()
                     ])
                 ->setSuccessStatus()
                 ->getResponse();

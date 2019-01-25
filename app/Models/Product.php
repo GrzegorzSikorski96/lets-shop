@@ -15,6 +15,8 @@ class Product extends Model
         'unit_type', 'category_name', 'shop_name'
     ];
 
+    public $timestamps = false;
+
     public function shopList(): BelongsTo
     {
         return $this->belongsTo(ShopList::class);

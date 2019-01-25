@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\AddProduct;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends APIController
 {
@@ -48,7 +49,17 @@ class ProductController extends APIController
     }
 
     public function changeStatus(Request $request){
+        if ($product = Product::find($request['product_id'])) {
 
+            $product->status = !$product->status;
+
+            return $this->response
+                ->setMessage(__('messages.product.status'))
+                ->setData(['list' => $product->shopList])
+                ->setSuccessStatus()
+                ->getResponse();
+        }
+        return $this->getProductNotFoundResponse();
     }
 
     private function getProductNotFoundResponse()

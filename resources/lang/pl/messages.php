@@ -34,6 +34,7 @@ return [
     'product.added'       => "Dodano pozycję.",
     'product.removed'     => "Usunięto pozycję.",
     'product.updated'     => "Zaktualizowano pozycję.",
+    'product.status'      => "Zmieniono status.",
 
     'shop.created'        => "Dodano sklep",
 

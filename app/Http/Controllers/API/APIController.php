@@ -22,6 +22,15 @@ class APIController extends BaseController
     protected $auth;
     protected $group_service;
 
+    /**
+     * @SWG\Swagger(
+     *   basePath="/app",
+     *   @SWG\Info(
+     *     title="Lets-shop API",
+     *     version="1.0.0"
+     *   )
+     * )
+     */
     public function __construct(JWTService $service, APIResponse $response, GroupService $group_service)
     {
         $this->response = $response;

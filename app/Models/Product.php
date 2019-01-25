@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Product extends Model
 {
     protected $fillable = [
-        'list_id', 'name', 'category_id', 'status', 'shop_id', 'description', 'count'
+        'shop_list_id', 'name', 'category_id', 'status', 'shop_id', 'description', 'count'
     ];
 
     protected $appends = [
         'unit_type', 'category_name', 'shop_name'
     ];
+
+    public $timestamps = false;
 
     public function shopList(): BelongsTo
     {

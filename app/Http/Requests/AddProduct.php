@@ -20,6 +20,7 @@ class AddProduct extends FormRequest
     public function rules()
     {
         return [
+            'shop_list_id' => 'required',
             'name' => 'required|max:40',
             'category_id' => 'integer|nullable',
             'shop_id' => 'integer|nullable',

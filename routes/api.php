@@ -13,6 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post("/login", "API\Auth\AuthController@login")->name("login");
+Route::post("/register", "API\Auth\RegisterController@register")->name("register");
+
+Route::group(['middleware' => ['jwt.auth']], function () {
+    Route::post("/logout", "API\Auth\AuthController@logout")->name("logout");
+
+
+});
+
+
 Route::fallback(function (\App\Helpers\APIResponse $response) {
     return $response
         ->setMessage(__('messages.not.found'))

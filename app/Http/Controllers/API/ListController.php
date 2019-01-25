@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Category;
+use App\Models\CategoryProduct;
 use App\Models\ShopList;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,8 @@ class ListController extends APIController
                     'list' => $list,
                     'products' => $list->products,
                     'shops' => $list->group->shops,
-                    'categories' => Category::all()
+                    'categories' => Category::all(),
+                    'exampleProducts' => CategoryProduct::all(),
                     ])
                 ->setSuccessStatus()
                 ->getResponse();
@@ -72,7 +74,6 @@ class ListController extends APIController
 
     public function removeList($list_id){
         if ($list = ShopList::find($list_id)) {
-
 
             foreach($list->products as $product){
                 $product->delete();

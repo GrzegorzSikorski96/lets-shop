@@ -22,7 +22,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::get("/group/{group_id}", "API\GroupController@getGroup")->where('group_id', '[0-9]+');
     Route::get("/groups", "API\GroupController@getGroups");
     Route::post("/group", 'API\GroupController@createGroup');
-    Route::post("/group/{group_id}/remove", "API\GroupController@removeGroup")->where('group_id', '[0-9]+');
+    Route::post("/group/remove/{group_id}", "API\GroupController@removeGroup")->where('group_id', '[0-9]+');
     Route::post("/invite/{group_id}", "API\GroupController@invite")->where('group_id', '[0-9]+');
     Route::post("/kick/{group_id}", "API\GroupController@invite")->where('group_id', '[0-9]+');
 

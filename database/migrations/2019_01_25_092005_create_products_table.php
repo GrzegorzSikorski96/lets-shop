@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
 
             $table->string('count')->nullable();
+            $table->string('unit_type')->nullable();
             $table->boolean('status')->default(false);
             $table->integer('shop_id')->unsigned()->nullable();
             $table->foreign('shop_id')->references('id')->on('shops');

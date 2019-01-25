@@ -168,13 +168,7 @@ class GroupController extends APIController
 
     public function getUsersList($group_id){
         if ($group = $this->group_service->findGroup($group_id)) {
-            if (!$group->isOwner()) {
-                return $this->response
-                    ->setMessage(__('messages.access.denied'))
-                    ->setData(['group' => $group])
-                    ->setFailureStatus(401)
-                    ->getResponse();
-            }
+                
             return $this->response
                 ->setData([
                     'group' => $group,

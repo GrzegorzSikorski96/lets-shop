@@ -3,27 +3,25 @@ import axios from "axios";
 
 export function login(credentials) {
     return new Promise((res, rej) => {
-        axios.post('/api/auth/login', credentials)
+        axios.post('/api/login', credentials)
             .then((response) => {
                 setAuthorization(response.data.token);
                 res(response.data);
             })
             .catch((err) =>{
-                Vue.toasted.show('Błędny email lub hasło', {
-                    type: 'error'
-                });
+                rej(err);
             })
     })
 }
 
 export function register(credentials) {
     return new Promise((res, rej) => {
-        axios.post('/api/auth/register', credentials)
+        axios.post('/api/register', credentials)
             .then((response) => {
                 res(response.data);
             })
             .catch((err) => {
-                this.$toasted.show('Nie udało się utworzyć konta', {
+                this.$toasted.show( err.data.message, {
                     type: 'error'
                 });
             })

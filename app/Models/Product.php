@@ -10,7 +10,7 @@ class Product extends Model
     protected $fillable = [
         'shop_list_id', 'name', 'category_id', 'status', 'shop_id', 'description', 'count'
     ];
-
+    public $timestamps = false;
     protected $appends = [
         'unit_type', 'category_name', 'shop_name'
     ];

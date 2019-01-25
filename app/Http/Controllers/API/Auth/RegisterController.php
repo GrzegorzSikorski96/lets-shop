@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends APIController
 {
+    /**
+     * Parametry
+     *
+     * Wymagane:
+     * name, email, password, password_confirmation
+     *
+     */
+
     public function register(Request $request)
     {
 

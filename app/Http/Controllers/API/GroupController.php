@@ -47,6 +47,14 @@ class GroupController extends APIController
         return $this->group_service->getGroupNotFoundResponse();
     }
 
+    /**
+     * Parametry
+     *
+     * Wymagane:
+     * name
+     *
+     */
+
     public function createGroup(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -77,6 +85,15 @@ class GroupController extends APIController
             ->setSuccessStatus()
             ->getResponse();
     }
+
+
+    /**
+     * Parametry
+     *
+     * Wymagane:
+     * name
+     *
+     */
 
     public function invite($group_id, Request $request)
     {

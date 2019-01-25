@@ -7,6 +7,15 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends APIController
 {
+
+    /**
+     * Parametry
+     *
+     * Wymagane:
+     * email, password
+     *
+     */
+
     public function login()
     {
 

@@ -65,14 +65,14 @@
                     <v-list-tile-title>Grupy</v-list-tile-title>
                 </v-list-tile>
 
-                <v-list-tile @click="addGroup = true" color="success">
+                <v-list-tile @click="addGroupDialog = true" color="success">
                     <v-list-tile-title>Dodaj grupę</v-list-tile-title>
                     <v-list-tile-action>
                         <v-icon color="success">fas fa-plus</v-icon>
                     </v-list-tile-action>
                 </v-list-tile>
 
-                <v-list-tile v-for="(group, i) in group"
+                <v-list-tile v-for="(group, i) in groups"
                              :key="i" :to="{name: 'Group', params: { id: group.id}}">
                     <v-list-tile-title>{{ group.name }}</v-list-tile-title>
                     <v-list-tile-action>
@@ -130,10 +130,14 @@
                 </v-flex>
             </v-layout>
         </v-list>
+
+        <add-group></add-group>
     </section>
 </template>
 
 <script>
+    import AddGroup from "../Group/AddGroup";
+
     export default {
         name: "NavigationDrawerItems",
         methods: {
@@ -142,8 +146,15 @@
                 this.$router.push('/login');
             },
         },
+        components:{
+          AddGroup
+        },
         data: () => ({
             drawer: true,
+
+            addGroupDialog: false,
+            groups: [],
+
             authRoutes: [],
             visitorRoutes: [
                 {label: 'Strona główna', name: 'HomePage', icon: 'home'},

@@ -95,8 +95,10 @@
                     });
             },
             clearForm() {
+                this.form.name = null;
                 this.form.email = null;
                 this.form.password = null;
+                this.form.password_confirmation = null;
             }
         },
         computed: {}

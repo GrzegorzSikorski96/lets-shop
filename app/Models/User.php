@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -27,4 +28,10 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function groups(): BelongsToMany{
+        return $this->belongsToMany(Group::class);
+    }
+
+
 }

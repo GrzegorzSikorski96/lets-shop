@@ -11,7 +11,7 @@ class AuthController extends APIController
     {
 
 
-        $credentials = request(['nickname', 'password']);
+        $credentials = request(['email', 'password']);
 
         if (!$token = auth('api')->attempt($credentials)) {
             return $this->response

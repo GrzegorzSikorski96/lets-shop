@@ -14,14 +14,15 @@ class RegisterController extends APIController
     {
 
         $validator = Validator::make($request->all(), [
-            'nickname' => 'min:4|required|unique:users',
+            'name' => 'min:3|required',
+            'email' => 'email|required|unique:users',
             'password' => 'min:4|required',
             'password_confirmation' => 'same:password|required',
         ]);
 
         if ($validator->fails()) {
             return $this->response
-                ->setMessage("Walidacja nie powiodła się.")
+                ->setMessage(__('messages.validation'))
                 ->setData($validator->errors())
                 ->setFailureStatus(400)
                 ->getResponse();

@@ -47,21 +47,9 @@ class ProductController extends APIController
         return $this->getProductNotFoundResponse();
     }
 
+    public function changeStatus(Request $request){
 
-
-//
-//    public function addShop($group_id, Request $request)
-//    {
-//        if ($group = $this->group_service->findGroup($group_id)) {
-//            return $this->response
-//                ->setData(['group' => $group])
-//                ->setSuccessStatus()
-//                ->getResponse();
-//        }
-//
-//        return $this->group_service->getGroupNotFoundResponse();
-//    }
-
+    }
 
     private function getProductNotFoundResponse()
     {

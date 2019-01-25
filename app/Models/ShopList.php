@@ -16,6 +16,6 @@ class ShopList extends Model
     ];
 
     public function products(): HasMany{
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class)->orderBy('shop_id')->orderBy('category_id');
     }
 }

@@ -33,5 +33,9 @@ return [
     'product.not.found'   => "Pozycja nie istnieje.",
     'product.added'       => "Dodano pozycję.",
     'product.removed'     => "Usunięto pozycję.",
-    'product.updated'     => "Zaktualizowano pozycję."
+    'product.updated'     => "Zaktualizowano pozycję.",
+
+    'shop.created'        => "Dodano sklep",
+
+    'category.created'    => "Dodano kategorię.",
 ];

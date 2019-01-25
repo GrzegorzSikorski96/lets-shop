@@ -33,6 +33,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 
     Route::post('/product', "API\ProductController@createOrUpdate");
     Route::post('/product/remove/{product_id}', "API\ProductController@removeProduct")->where('product_id', '[0-9]+');
+    Route::post('/product/check', "API\ProductController@changeStatus");
 
     Route::post('/shop/{group_id}', "API\MiscController@addShop")->where('group_id', '[0-9]+');
 

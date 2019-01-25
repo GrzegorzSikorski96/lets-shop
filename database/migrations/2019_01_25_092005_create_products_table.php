@@ -18,17 +18,16 @@ class CreateProductsTable extends Migration
             $table->integer('shop_list_id')->unsigned();
             $table->foreign('shop_list_id')->references('id')->on('shop_lists');
 
-
             $table->string('name');
             $table->integer('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
 
+            $table->string('count')->nullable();
             $table->boolean('status')->default(false);
             $table->integer('shop_id')->unsigned()->nullable();
             $table->foreign('shop_id')->references('id')->on('shops');
 
             $table->string("description")->nullable();
-
 
         });
     }

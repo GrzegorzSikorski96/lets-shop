@@ -25,6 +25,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::post("/group/remove/{group_id}", "API\GroupController@removeGroup")->where('group_id', '[0-9]+');
     Route::post("/invite/{group_id}", "API\GroupController@invite")->where('group_id', '[0-9]+');
     Route::post("/kick/{group_id}", "API\GroupController@invite")->where('group_id', '[0-9]+');
+    Route::get("/group/{group_id}/users", "API\GroupController@getUsersList")->where('group_id', '[0-9]+');
 
     Route::get("/lists/{group_id}", "API\ListController@getGroupLists")->where('group_id', '[0-9]+');
     Route::get("/list/{list_id}", "API\ListController@getList")->where('list_id', '[0-9]+');

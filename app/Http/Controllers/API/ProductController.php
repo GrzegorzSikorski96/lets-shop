@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class ProductController extends APIController
 {
+
+    /**
+     * Parametry
+     *
+     * Wymagane:
+     * shop_list_id, name
+     *
+     * Opcjonalne:
+     * product_id, category_id, shop_id, description
+     *
+     */
+
     public function createOrUpdate(AddProduct $request)
     {
         $data = $request->all();
@@ -47,6 +59,15 @@ class ProductController extends APIController
         }
         return $this->getProductNotFoundResponse();
     }
+
+
+    /**
+     * Parametry
+     *
+     * Wymagane:
+     * product_id
+     *
+     */
 
     public function changeStatus(Request $request){
         if ($product = Product::find($request['product_id'])) {

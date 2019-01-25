@@ -54,6 +54,14 @@ class ListController extends APIController
         return $this->getListNotFoundResponse();
     }
 
+    /**
+     * Parametry
+     *
+     * Wymagane:
+     * name
+     *
+     */
+
     public function createList($group_id, Request $request)
     {
         if ($group = $this->group_service->findGroup($group_id)) {

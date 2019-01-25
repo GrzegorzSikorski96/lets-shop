@@ -91,7 +91,7 @@ class GroupController extends APIController
      * Parametry
      *
      * Wymagane:
-     * name
+     * email
      *
      */
 
@@ -129,6 +129,14 @@ class GroupController extends APIController
         return $this->group_service->getGroupNotFoundResponse();
     }
 
+    /**
+     * Parametry
+     *
+     * Wymagane:
+     * user_id
+     *
+     */
+
     public function kick($group_id, Request $request)
     {
         if ($group = $this->group_service->findGroup($group_id)) {
@@ -156,6 +164,27 @@ class GroupController extends APIController
         }
 
         return $this->group_service->getGroupNotFoundResponse();
+    }
+
+    public function getUsersList($group_id){
+        if ($group = $this->group_service->findGroup($group_id)) {
+            if (!$group->isOwner()) {
+                return $this->response
+                    ->setMessage(__('messages.access.denied'))
+                    ->setData(['group' => $group])
+                    ->setFailureStatus(401)
+                    ->getResponse();
+            }
+            return $this->response
+                ->setData([
+                    'group' => $group,
+                    'users' => $group->users])
+                ->setFailureStatus(401)
+                ->getResponse();
+        }
+
+        return $this->group_service->getGroupNotFoundResponse();
+
     }
 
 }

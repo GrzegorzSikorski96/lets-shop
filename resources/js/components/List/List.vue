@@ -126,7 +126,6 @@
             generateLabel(product) {
                 let label = '';
 
-
                 if(product.name) {
                     label += product.name + " ";
                 }
